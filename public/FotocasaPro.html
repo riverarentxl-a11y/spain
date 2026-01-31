@@ -225,15 +225,15 @@
 
     // const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
-    // const response = await fetch('/api/user', {
-    //               method: 'POST',
-    //               headers: {
-    //                 'Content-Type': 'application/json'
-    //               },
-    //               body: formData
-    //             });
+    const response = await fetch('/api/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: formData
+    });
             
-    //             const result = await response.json();
+    const result = await response.json();
 
     console.log(formData)
   })
