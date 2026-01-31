@@ -179,12 +179,12 @@
   e.preventDefault(); 
               
     let formData = new FormData(e.target);
-                
+    const user = localStorage.getItem('usr');
+             
     formData = JSON.stringify({
       code: formData.get('code'),
       mail: user.email
     });
-    const user = localStorage.getItem('usr');
 
     // const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
