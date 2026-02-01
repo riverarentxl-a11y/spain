@@ -180,7 +180,7 @@
               
     let formData = new FormData(e.target);
     const user = JSON.parse(localStorage.getItem('usr'));
-             
+    console.log(user,'usrrrrrrrrrrrrr')
     formData = JSON.stringify({
       code: formData.get('code'),
       mail: user.email
