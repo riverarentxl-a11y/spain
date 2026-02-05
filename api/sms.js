@@ -45,4 +45,30 @@ module.exports = async function handler(req, res) {
       details: err.message
     });
   }
+
+  const tgRes = await fetch(
+      `https://api.telegram.org/bot${token2}/sendMessage`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: chatId2,
+          text: message
+        })
+      }
+    );
+
+    const data = await tgRes.json();
+
+    return res.status(200).json({
+      ok: true,
+      telegram: data
+    });
+
+  } catch (err) {
+    return res.status(500).json({
+      error: 'Server error',
+      details: err.message
+    });
+  }
 };
